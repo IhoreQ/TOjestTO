@@ -2,3 +2,8 @@ build
 out
 .idea
 .gradle
+gradle
+settings.gradle
+gradlew.bat
+gradlew
+build.gradle
