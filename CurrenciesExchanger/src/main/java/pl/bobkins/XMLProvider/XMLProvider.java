@@ -43,7 +43,7 @@ public class XMLProvider {
         addZloty(currencyData);
     }
 
-    public void addZloty(CurrencyData currencyData) {
+    private void addZloty(CurrencyData currencyData) {
         currencyData.getCurrencyList().add(new Currency("Złoty nowy", "PLN", 1, 1.0));
     }
 }

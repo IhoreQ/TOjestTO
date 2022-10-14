@@ -1,0 +1,9 @@
+0 - wzrost, potem spadek; ciśnienie jest wyższe lub takie samo jak przed trzema godzinami
+1 - wzrost potem stan stały; lub wzrost, potem wzrost wolniejszy; ciśnienie jest wyższe niż przed trzema godzinami
+2 - wzrost równomierny lub nierównomierny; ciśnienie jest wyższe niż przed trzema godzinami
+3 - spadek, potem wzrost; lub stan stały, potem wzrost; lub wzrost, potem wzrost słabszy; ciśnienie jest wyższe niż przed trzema godzinami
+4 - stan stały; ciśnienie jest takie samo jak przed trzema godzinami
+5 - spadek, potem wzrost; ciśnienie jest takie samo lub niższe niż przed trzema godzinami
+6 - spadek, potem stan stały; lub spadek, potem spadek wolniejszy; ciśnienie jest niższe niż przed trzema godzinami
+7 - spadek równomierny lub nierównomierny; ciśnienie jest niższe niż przed trzema godzinami
+8 - wzrost, potem spadek; lub stan stały, potem spadek; lub spadek, potem spadek szybszy; ciśnienie jest niższe niż przed trzema godzinami

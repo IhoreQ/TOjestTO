@@ -20,19 +20,8 @@ public class CurrencyData {
         return allObjects;
     }
 
-    //Zwraca referencję do listy obiektów Currency w klasie
     public List<Currency> getCurrencyList() {
         return currencyList;
-    }
-
-    //Zwraca pełen obiekt Currency z listy po podaniu obiektu Currency, z ustawionym kodem waluty
-    public Currency getCurrencyByCode(Currency currency) {
-
-        for (Currency element : currencyList) {
-            if (element.getCode().equals(currency.getCode()))
-                return element;
-        }
-        return null;
     }
 
 }
