@@ -17,7 +17,12 @@ public class DataProvider {
                 .replace(" 333 ", "*");
         String timeLine = line.substring(6, 23);
         String sectionZeroLine = line.substring(23, 40);
-        String sectionOneLine = line.substring(40, line.indexOf("*"));
+        String sectionOneLine = "";
+
+        if (line.contains("*"))
+            sectionOneLine = line.substring(40, line.indexOf("*"));
+        else
+            sectionOneLine = line.substring(40);
 
         List<String> lines = new ArrayList<>();
         lines.add(timeLine);
@@ -68,7 +73,7 @@ public class DataProvider {
 
         if (sectionOne.getWindSpeed().equals("99")) {
             getAdditionalWindGroup(sectionOne, parts[2]);
-            ADDITIONAL_FACTOR = 1;
+            ADDITIONAL_FACTOR++;
         }
 
 
@@ -77,6 +82,22 @@ public class DataProvider {
         getThirdGroup(sectionOne, parts[4 + ADDITIONAL_FACTOR]);
         getFourthGroup(sectionOne, parts[5 + ADDITIONAL_FACTOR]);
         getFifthGroup(sectionOne, parts[6 + ADDITIONAL_FACTOR]);
+
+        //TODO naprawić indexowanie
+        if (sectionOne.isRainGroupActive())
+            getSixthGroup(sectionOne, parts[7 + ADDITIONAL_FACTOR]);
+        else
+            ADDITIONAL_FACTOR--;
+
+        if (sectionOne.isPresentWeatherActive())
+            getSeventhGroup(sectionOne, parts[8 + ADDITIONAL_FACTOR]);
+        else
+            ADDITIONAL_FACTOR--;
+
+        if (sectionOne.isCloudsGroupActive()) {
+            getEighthGroup(sectionOne, parts[9 + ADDITIONAL_FACTOR]);
+        }
+
 
         return sectionOne;
     }
@@ -88,10 +109,37 @@ public class DataProvider {
         String cloudsHeight = line.substring(2, 3);
         String horizontalVisibility = line.substring(3);
 
-        rainGroup = findCodeInFile(rainGroup, "rain_group_key.dat", 1);
-        stationType = findCodeInFile(stationType, "station_type_key.dat", 1);
-        cloudsHeight = findCodeInFile(cloudsHeight, "clouds_height_key.dat", 1);
-        horizontalVisibility = findCodeInFile(horizontalVisibility, "horizontal_visibility_key.dat", 2);
+
+        if (Integer.parseInt(rainGroup) < 2)
+            sectionOne.setRainGroupActive(true);
+
+        switch (stationType) {
+            case "1", "4" -> {
+                sectionOne.setAutomaticStation(false);
+                sectionOne.setPresentWeatherActive(true);
+            }
+            case "2", "3" -> {
+                sectionOne.setAutomaticStation(false);
+                sectionOne.setPresentWeatherActive(false);
+            }
+            case "5", "6" -> {
+                sectionOne.setAutomaticStation(true);
+                sectionOne.setPresentWeatherActive(false);
+            }
+            case "7" -> {
+                sectionOne.setAutomaticStation(true);
+                sectionOne.setPresentWeatherActive(true);
+            }
+        }
+
+        if (cloudsHeight.equals("/") || cloudsHeight.equals("9")) {
+            sectionOne.setCloudsGroupActive(false);
+        }
+
+        rainGroup = findCodeInFile(rainGroup, "rain_group_key.dat", rainGroup.length());
+        stationType = findCodeInFile(stationType, "station_type_key.dat", stationType.length());
+        cloudsHeight = findCodeInFile(cloudsHeight, "clouds_height_key.dat", cloudsHeight.length());
+        horizontalVisibility = findCodeInFile(horizontalVisibility, "horizontal_visibility_key.dat", horizontalVisibility.length());
 
         sectionOne.setRainGroup(rainGroup);
         sectionOne.setStationType(stationType);
@@ -105,8 +153,10 @@ public class DataProvider {
         String windDirection = line.substring(1, 3);
         String windSpeed = line.substring(3);
 
-        amountOfCloudCover = findCodeInFile(amountOfCloudCover, "amount_of_cloud_cover_key.dat", 1);
-        windDirection = findCodeInFile(windDirection, "wind_direction_key.dat", 2);
+        windSpeed = windSpeed.replaceFirst("^0+(?!$)", "");
+
+        amountOfCloudCover = findCodeInFile(amountOfCloudCover, "amount_of_cloud_cover_key.dat", amountOfCloudCover.length());
+        windDirection = findCodeInFile(windDirection, "wind_direction_key.dat", windDirection.length());
 
         sectionOne.setAmountOfCloudCover(amountOfCloudCover);
         sectionOne.setWindDirection(windDirection);
@@ -180,21 +230,23 @@ public class DataProvider {
     private void getFourthGroup(SectionOne sectionOne, String line) {
         String pressureLevelSea = line.substring(1);
         String geopotentialHeight = "";
+        String isobaricSurface = "";
 
         if (pressureLevelSea.charAt(0) != '0' && pressureLevelSea.charAt(0) != '1') {
             geopotentialHeight = pressureLevelSea.substring(1);
         }
-        pressureLevelSea = switch (pressureLevelSea.charAt(0)) {
-            case '0' -> "1" + pressureLevelSea.substring(0, 3) + "." + pressureLevelSea.substring(3);
-            case '1' -> "1000";
-            case '2' -> "925";
-            case '5' -> "500";
-            case '7' -> "700";
-            case '8' -> "850";
-            default -> pressureLevelSea.substring(0, 3) + "." + pressureLevelSea.substring(3);
+        switch (pressureLevelSea.charAt(0)) {
+            case '0' -> pressureLevelSea = "1" + pressureLevelSea.substring(0, 3) + "." + pressureLevelSea.substring(3);
+            case '1' -> isobaricSurface = "1000";
+            case '2' -> isobaricSurface = "925";
+            case '5' -> isobaricSurface = "500";
+            case '7' -> isobaricSurface = "700";
+            case '8' -> isobaricSurface = "850";
+            default -> pressureLevelSea = pressureLevelSea.substring(0, 3) + "." + pressureLevelSea.substring(3);
         };
 
         sectionOne.setPressureLevelSea(pressureLevelSea);
+        sectionOne.setIsobaricSurface(isobaricSurface);
         sectionOne.setGeopotentialHeight(geopotentialHeight);
     }
 
@@ -207,9 +259,64 @@ public class DataProvider {
         else
             pressureTendencyValue = pressureTendencyValue.substring(0, 2) + "." + pressureTendencyValue.substring(2);
 
-        pressureTendencyCharacteristic = findCodeInFile(pressureTendencyCharacteristic, "pressure_tendency_characteristic_key.dat", 1);
+        pressureTendencyCharacteristic = findCodeInFile(pressureTendencyCharacteristic, "pressure_tendency_characteristic_key.dat", pressureTendencyCharacteristic.length());
         sectionOne.setPressureTendencyCharacteristic(pressureTendencyCharacteristic);
         sectionOne.setPressureTendencyValue(pressureTendencyValue);
+
+    }
+
+    private void getSixthGroup(SectionOne sectionOne, String line) {
+        String rainfall = line.substring(1, 4);
+        String rainfallDuration = line.substring(4);
+
+        rainfall = rainfall.replaceFirst("^0+(?!$)", "");
+
+        if (Integer.parseInt(rainfall) > 988)
+            rainfall = findCodeInFile(rainfall, "rainfall_key.dat", rainfall.length());
+        else
+            rainfall += " mm";
+
+        rainfallDuration = findCodeInFile(rainfallDuration, "rainfall_duration_key.dat", rainfallDuration.length());
+
+        sectionOne.setRainfall(rainfall);
+        sectionOne.setRainfallDuration(rainfallDuration);
+    }
+
+    private void getSeventhGroup(SectionOne sectionOne, String line) {
+
+        String presentWeather = line.substring(1, 3);
+        String pastWeatherFirstPart = line.substring(3, 4);
+        String pastWeatherSecondPart = line.substring(4);
+
+        if (sectionOne.isAutomaticStation()) {
+            presentWeather = findCodeInFile(presentWeather, "wmo_code_table_4680.dat", presentWeather.length());
+            pastWeatherFirstPart = findCodeInFile(pastWeatherFirstPart, "wmo_code_table_4531.dat", pastWeatherFirstPart.length());
+            pastWeatherSecondPart = findCodeInFile(pastWeatherSecondPart, "wmo_code_table_4531.dat", pastWeatherSecondPart.length());
+        } else {
+            presentWeather = findCodeInFile(presentWeather, "wmo_code_table_4677.dat", presentWeather.length());
+            pastWeatherFirstPart = findCodeInFile(pastWeatherFirstPart, "wmo_code_table_4561.dat", pastWeatherFirstPart.length());
+            pastWeatherSecondPart = findCodeInFile(pastWeatherSecondPart, "wmo_code_table_4561.dat", pastWeatherSecondPart.length());
+        }
+
+        sectionOne.setPresentWeather(presentWeather);
+        sectionOne.setPastWeatherFirstPart(pastWeatherFirstPart);
+        sectionOne.setPastWeatherSecondPart(pastWeatherSecondPart);
+    }
+
+    private void getEighthGroup(SectionOne sectionOne, String line) {
+        String cloudCover = line.substring(1, 2);
+        String stratocumulusClouds = line.substring(2, 3);
+        String altocumulusClouds = line.substring(3, 4);
+        String cirrusClouds = line.substring(4);
+
+        stratocumulusClouds = findCodeInFile(stratocumulusClouds, "stratocumulus_clouds_key.dat", stratocumulusClouds.length());
+        altocumulusClouds = findCodeInFile(altocumulusClouds, "altocumulus_clouds_key.dat", altocumulusClouds.length());
+        cirrusClouds = findCodeInFile(cirrusClouds, "cirrus_clouds_key.dat", cirrusClouds.length());
+
+        sectionOne.setCloudCover(cloudCover);
+        sectionOne.setStratocumulusClouds(stratocumulusClouds);
+        sectionOne.setAltocumulusClouds(altocumulusClouds);
+        sectionOne.setCirrusClouds(cirrusClouds);
 
     }
 

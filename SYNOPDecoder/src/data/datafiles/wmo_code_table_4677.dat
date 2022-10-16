@@ -1,0 +1,100 @@
+00 - rozwój chmur nie był obserwowany lub nie był możliwy do obserwowania (podczas ostatniej godziny)
+01 - chmury na ogół zanikają lub stają się cieńsze (podczas ostatniej godziny)
+02 - stan nieba na ogól bez zmian (podczas ostatniej godziny)
+03 - chmury w stadium tworzenia się lub rozwoju (podczas ostatniej godziny)
+04 - widzialność zmniejszona przez dymy (z pożarów lasów, stepów, dymy pochodzenia fabrycznego lub pyły wulkaniczne)
+05 - zmętnienie (zmniejszenie widzialności spowodowane głównie przez litometeory)
+06 - pył unoszony w powietrzu na znacznych przestrzeniach (nie wzniesiony przez wiatr w czasie obserwacji w miejscu dokonywania obserwacji ani w jego pobliżu)
+07 - pył lub piasek w powietrzu wznoszony przez wiatr w czasie obserwacji w miejscu dokonywania obserwacji, bez wyraźnych wirów pyłowych lub piaskowych lub wichury pyłowej czy piaskowej
+08 - silnie rozwinięte wiry pyłowe lub piaskowe w miejscu obserwacji lub w pobliżu, w czasie obserwacji lub w ciągu ostatniej godziny, lecz nie wichura pyłowa lub piaskowa
+09 - wichura pyłowa lub piaskowa w zasięgu widzenia w czasie obserwacji lub w miejscu wykonywania obserwacji w ciągu ostatniej godziny
+10 - zamglenie (widzialność zmniejszają tylko kropelki wody lub kryształki lodu, widzialność wynosi 1000 m lub więcej)
+11 - niska mgła lub mgła lodowa w płatach (w miejscu obserwacji do 2 m wysokości na lądzie, do 10 m wysokości na morzu, widzialność mniejsza niż 1000 m)
+12 - mniej lub bardziej ciągła warstwa niskiej mgły lub mgły lodowej (w miejscu obserwacji do 2 m wysokości na lądzie, do 10 m wysokości na morzu, widzialność mniejsza niż 1000 m)
+13 - błyskawica widoczna, lecz nie słychać grzmotu
+14 - opad w polu widzenia nie sięgający gruntu lub powierzchni morza
+15 - opad w polu widzenia sięgający gruntu lub powierzchni morza, w większej odległości od miejsca obserwacji (ponad 5 km)
+16 - opad w polu widzenia sięgający gruntu lub powierzchni morza, w pobliżu lecz nie w samym miejscu obserwacji
+17 - burza bez opadu w czasie obserwacji (ostatni grzmot słyszany mniej niż w ciągu ostatnich 15 minut przed obserwacją)
+18 - nawałnica w polu widzenia lub w miejscu obserwacji w czasie obserwacji lub w ciągu ostatniej godziny (gdy prędkość wiatru nagle wzrasta o co najmniej 8 m/s przy jednoczesnym osiągnięciu co najmniej 11 m/s (o 3 przedziały skali Beauforta) i utrzymywaniu się tej prędkości przez co najmniej 1 minutę)
+19 - trąba (wodna lub tornado) w polu widzenia lub miejscu obserwacji w ciągu ostatniej godziny lub w czasie obserwacji
+20 - mżawka (nie marznąca) lub śnieg ziarnisty (bez cech opadu przelotnego)
+21 - deszcz (nie marznący, bez cech opadu przelotnego)
+22 - śnieg (bez cech opadu przelotnego)
+23 - deszcz ze śniegiem lub ziarna lodowe (deszcz lodowy, bez cech opadu przelotnego)
+24 - mżawka marznąca lub deszcz marznący (bez cech opadu przelotnego)
+25 - przelotny deszcz
+26 - przelotny śnieg lub przelotny deszcz ze śniegiem
+27 - przelotny grad lub deszcz z gradem lub krupy śnieżne lub krupy lodowe
+28 - mgła lub mgła lodowa (widzialność poniżej 1000 m)
+29 - burza bez opadu lub z opadem (jeżeli ostatni grzmot słyszany wcześniej niż 15 minut przed obserwacją)
+30 - słaba lub umiarkowana wichura pyłowa lub piaskowa, słabnąca w ciągu ostatniej godziny
+31 - słaba lub umiarkowana wichura pyłowa lub piaskowa, bez dostrzegalnych zmian w ciągu ostatniej godziny
+32 - słaba lub umiarkowana wichura pyłowa lub piaskowa, zaczęła się lub wzmogła w ciągu ostatniej godziny
+33 - silna wichura pyłowa lub piaskowa, słabnąca w ciągu ostatniej godziny
+34 - silna wichura pyłowa lub piaskowa, bez zmian w ciągu ostatniej godziny
+35 - silna wichura pyłowa lub piaskowa, zaczęła się lub wzmogła w ciągu ostatniej godziny
+36 - niska zamieć śnieżna, słaba lub umiarkowana (na ogół poniżej poziomu oczu obserwatora, bez opadów śniegu)
+37 - niska zamieć śnieżna, silna (na ogół poniżej poziomu oczu obserwatora, bez opadów śniegu, gwałtowne narastanie zasp)
+38 - wysoka zamieć śnieżna, słaba lub umiarkowana (na ogół powyżej poziomu oczu obserwatora, bez opadów śniegu)
+39 - wysoka zamieć śnieżna, silna (na ogół powyżej poziomu oczu obserwatora, bez opadów śniegu, gwałtowne narastanie zasp)
+40 - mgła (mgła lodowa) sięgająca powyżej poziomu oczu obserwatora, w pewnej odległości od miejsca obserwacji w czasie obserwacji, w ciągu ostatniej godziny mgły w miejscu obserwacji nie było (w miejscu obserwacji widzialność większa od 1000 m)
+41 - mgła (mgła lodowa) w płatach
+42 - mgła (mgła lodowa), niebo widoczne, stała się rzadsza w ciągu ostatniej godziny
+43 - mgła (mgła lodowa), niebo niewidoczne, staje się rzadsza, stała się rzadsza w ciągu ostatniej godziny
+44 - mgła (mgła lodowa), niebo widoczne, bez dostrzegalnych zmian w ciągu ostatniej godziny
+45 - mgła (mgła lodowa), niebo niewidoczne, bez dostrzegalnych zmian w ciągu ostatniej godziny
+46 - mgła (mgła lodowa), niebo widoczne, zaczęła się tworzyć lub gęstnieje w ciągu ostatniej godziny
+47 - mgła (mgła lodowa), niebo niewidoczne, zaczęła się tworzyć lub gęstnieje w ciągu ostatniej godziny
+48 - mgła osadzająca szadź, niebo widoczne (głównym czynnikiem osłabiającym widzialność są kropelki wody)
+49 - mgła osadzająca szadź, niebo niewidoczne (głównym czynnikiem osłabiającym widzialność są kropelki wody)
+50 - mżawka nie marznąca, z przerwami, słaba w czasie obserwacji
+51 - mżawka nie marznąca, ciągła, słaba w czasie obserwacji
+52 - mżawka nie marznąca, z przerwami, umiarkowana w czasie obserwacji
+53 - mżawka nie marznąca, ciągła, umiarkowana w czasie obserwacji
+54 - mżawka nie marznąca, z przerwami, silna w czasie obserwacji
+55 - mżawka nie marznąca, ciągła, silna w czasie obserwacji
+56 - mżawka marznąca, słaba
+57 - mżawka marznąca, umiarkowana lub silna
+58 - mżawka z deszczem, słaba
+59 - mżawka z deszczem, umiarkowana lub silna
+60 - deszcz nie marznący, z przerwami, słaby w czasie obserwacji
+61 - deszcz nie marznący, ciągły, słaby w czasie obserwacji
+62 - deszcz nie marznący, z przerwami, umiarkowany w czasie obserwacji
+63 - deszcz nie marznący, ciągły, umiarkowany w czasie obserwacji
+64 - deszcz nie marznący, z przerwami, silny w czasie obserwacji
+65 - deszcz nie marznący, ciągły, silny w czasie obserwacji
+66 - deszcz marznący, słaby
+67 - deszcz marznący, umiarkowany lub silny
+68 - deszcz lub mżawka ze śniegiem, słaby
+69 - deszcz lub mżawka ze śniegiem, umiarkowany lub silny
+70 - śnieg z przerwami, słaby w czasie obserwacji
+71 - śnieg ciągły, słaby w czasie obserwacji
+72 - śnieg z przerwami, umiarkowany w czasie obserwacji
+73 - śnieg ciągły, umiarkowany w czasie obserwacji
+74 - śnieg z przerwami, silny w czasie obserwacji
+75 - śnieg ciągły, silny w czasie obserwacji
+76 - pył diamentowy (słupki lodowe), z mgłą lub bez mgły
+77 - śnieg ziarnisty, z mgłą lub bez mgły
+78 - oddzielne gwiazdki śniegu, z mgłą lub bez mgły
+79 - ziarna lodowe (deszcz lodowy)
+80 - przelotny deszcz, słaby
+81 - przelotny deszcz, umiarkowany lub silny
+82 - przelotny deszcz, gwałtowny
+83 - przelotny deszcz ze śniegiem, słaby
+84 - przelotny deszcz ze śniegiem, umiarkowany lub silny
+85 - przelotny śnieg, słaby
+86 - przelotny śnieg, umiarkowany lub silny
+87 - przelotne krupy lodowe lub śnieżne, same lub z deszczem, względnie z deszczem i śniegiem, słabe
+88 - przelotne krupy lodowe lub śnieżne, same lub z deszczem, względnie z deszczem i śniegiem, umiarkowane lub silne
+89 - przelotny grad sam lub z deszczem, względnie deszczem i śniegiem, lecz bez grzmotu, słaby
+90 - przelotny grad sam lub z deszczem, względnie deszczem i śniegiem, lecz bez grzmotu, umiarkowany lub silny
+91 - słaby deszcz w czasie obserwacji, burza w ciągu ostatniej godziny, lecz nie w czasie obserwacji
+92 - umiarkowany lub silny deszcz w czasie obserwacji, burza w ciągu ostatniej godziny, lecz nie w czasie obserwacji
+93 - słaby śnieg lub deszcz ze śniegiem w czasie obserwacji, burza w ciągu ostatniej godziny, lecz nie w czasie obserwacji
+94 - umiarkowany lub silny śnieg lub deszcz ze śniegiem w czasie obserwacji, burza w ciągu ostatniej godziny, lecz nie w czasie obserwacji
+95 - słaba lub umiarkowana burza w czasie obserwacji, bez gradu, lecz deszczem lub śniegiem względnie z deszczem i śniegiem
+96 - słaba lub umiarkowana burza z gradem w czasie obserwacji
+97 - silna burza w czasie obserwacji, bez gradu, lecz deszczem lub śniegiem względnie z deszczem i śniegiem
+98 - burza połączona z wichurą pyłową lub piaskową w czasie obserwacji
+99 - silna burza z gradem w czasie obserwacji

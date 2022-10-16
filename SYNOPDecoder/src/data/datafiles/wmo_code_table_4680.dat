@@ -1,0 +1,97 @@
+00 - nie występują żadne znaczące zjawiska pogodowe
+01 - chmury na ogół zanikają lub stają się cieńsze (podczas ostatniej godziny)
+02 - stan nieba na ogól bez zmian (podczas ostatniej godziny)
+03 - chmury w stadium tworzenia się lub rozwoju (podczas ostatniej godziny)
+04 - dym, zmętnienie lub pył w powietrzu, widzialność równa lub większa od 1 km
+05 - dym, zmętnienie lub pył w powietrzu, widzialność mniejsza niż 1 km
+06 - 09 - zarezerwowano
+10 - zamglenie
+11 - pył diamentowy
+12 - błyskawica odległa
+13 - zarezerwowano
+14 - zarezerwowano
+15 - zarezerwowano
+16 - zarezerwowano
+17 - zarezerwowano
+18 - nawałnica
+19 - zarezerwowano
+20 - mgła, w miejscu obserwacji w ciągu ostatniej godziny, lecz nie w czasie dokonywania obserwacji
+21 - OPAD, w miejscu obserwacji w ciągu ostatniej godziny, lecz nie w czasie dokonywania obserwacji
+22 - mżawka lub śnieg ziarnisty, w miejscu obserwacji w ciągu ostatniej godziny, lecz nie w czasie dokonywania obserwacji
+23 - deszcz (niemarznący), w miejscu obserwacji w ciągu ostatniej godziny, lecz nie w czasie dokonywania obserwacji
+24 - śnieg, w miejscu obserwacji w ciągu ostatniej godziny, lecz nie w czasie dokonywania obserwacji
+25 - marznący deszcz lub mżawka, w miejscu obserwacji w ciągu ostatniej godziny, lecz nie w czasie dokonywania obserwacji
+26 - burza (z lub bez opadu), w miejscu obserwacji w ciągu ostatniej godziny, lecz nie w czasie dokonywania obserwacji
+27 - NISKA ZAMIEĆ ŚNIEŻNA LUB WICHURA PIASKOWA
+28 - niska zamieć śnieżna lub wichura piaskowa, widzialność 1 km lub więcej
+29 - niska zamieć śnieżna lub wichura piaskowa, widzialność poniżej 1 km
+30 - MGŁA
+31 - mgła lub mgła lodowa w płatach
+32 - mgła lub mgła lodowa, rzedniejąca w ciągu ostatniej godziny
+33 - mgła lub mgła lodowa, bez dostrzegalnych zmian w ciągu ostatniej godziny
+34 - mgła lub mgła lodowa, gęstniejąca w ciągu ostatniej godziny
+35 - mgła osadzająca szadź
+36 - zarezerwowano
+37 - zarezerwowano
+38 - zarezerwowano
+39 - zarezerwowano
+40 - OPAD
+41 - opad, słaby lub umiarkowany
+42 - opad, silny
+43 - opad ciekły, słaby lub umiarkowany
+44 - opad ciekły, silny
+45 - opad w postaci stałej, słaby lub umiarkowany
+46 - opad w postaci stałej, silny
+47 - opad marznący, słaby lub umiarkowany
+48 - opad marznący, silny
+49 - zarezerwowano
+50 - MŻAWKA
+51 - mżawka nie marznąca, słaba
+52 - mżawka nie marznąca, umiarkowana
+53 - mżawka nie marznąca, silna
+54 - mżawka marznąca, słaba
+55 - mżawka marznąca, umiarkowana
+56 - mżawka marznąca, silna
+57 - mżawka z deszczem, słaba
+58 - mżawka z deszczem, umiarkowana lub silna
+59 - zarezerwowano
+60 - DESZCZ
+61 - deszcz nie marznący, słaby
+62 - deszcz nie marznący, umiarkowany
+63 - deszcz nie marznący, silny
+64 - deszcz marznący, słaby
+65 - deszcz marznący, umiarkowany
+66 - deszcz marznący, silny
+67 - deszcz (lub mżawka) ze śniegiem, słaby
+68 - deszcz (lub mżawka) ze śniegiem, umiarkowany lub silny
+69 - zarezerwowano
+70 - ŚNIEG
+71 - śnieg, słaby
+72 - śnieg, umiarkowany
+73 - śnieg silny
+74 - ziarna lodowe, słabe
+75 - ziarna lodowe, umiarkowane
+76 - ziarna lodowe, silne
+77 - śnieg ziarnisty
+78 - kryształki lodowe
+79 - zarezerwowano
+80 - OPADY PRZELOTNE LUB OPADY Z PRZERWAMI
+81 - przelotny deszcz lub deszcz z przerwami, słaby
+82 - przelotny deszcz lub deszcz z przerwami, umiarkowany
+83 - przelotny deszcz lub deszcz z przerwami, silny
+84 - przelotny deszcz lub deszcz z przerwami, gwałtowny
+85 - przelotny śnieg lub śnieg z przerwami, słaby
+86 - przelotny śnieg lub śnieg z przerwami, umiarkowany
+87 - przelotny śnieg lub śnieg z przerwami, silny
+88 - zarezerwowano
+89 - grad
+90 - BURZA
+91 - burza słaba lub umiarkowana, bez opadu
+92 - burza słaba lub umiarkowana, z przelotnym deszczem lub śniegiem
+93 - burza słaba lub umiarkowana, z gradem
+94 - burza silna, bez opadu
+95 - burza silna, z przelotnym deszczem i/lub śniegiem
+96 - burza silna, z gradem
+97 - zarezerwowano
+98 - zarezerwowano
+99 - trąba (tornado)
