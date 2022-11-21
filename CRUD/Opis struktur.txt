@@ -1,0 +1,4 @@
+Baza danych 'notatki' zawiera 2 tabele:
+
+- users: zawierającej informacje o imieniu, nazwisku, loginie i haśle. Jeden użytkownik może posiadać wiele notatek.
+- notes: zawierającej informacje o tytule, zawartości notatki i id użytkownika, który jest właścicielem notatki.
