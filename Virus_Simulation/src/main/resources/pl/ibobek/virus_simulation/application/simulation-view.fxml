@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.ibobek.virus_simulation.application.SimulationController">
+   <center>
+      <Pane fx:id="area" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin></Pane>
+   </center>
+   <bottom>
+      <Pane prefHeight="75.0" prefWidth="200.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="startButton" layoutX="350.0" layoutY="25.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefWidth="100.0" text="Start" />
+            <Button fx:id="stopButton" layoutX="475.0" layoutY="25.0" mnemonicParsing="false" onAction="#onStopButtonClick" prefWidth="100.0" text="Stop" />
+            <Button fx:id="spawnButton" layoutX="50.0" layoutY="25.0" mnemonicParsing="false" onAction="#onSpawnButtonClick" prefWidth="100.0" text="Spawn" />
+            <ComboBox fx:id="savedTimesComboBox" layoutX="200.0" layoutY="10.0" onAction="#onItemSelected" prefWidth="100.0" />
+            <Button fx:id="restoreButton" layoutX="200.0" layoutY="40.0" mnemonicParsing="false" onAction="#onRestoreButtonClick" prefWidth="100.0" text="Restore" />
+         </children>
+      </Pane>
+   </bottom>
+</BorderPane>
