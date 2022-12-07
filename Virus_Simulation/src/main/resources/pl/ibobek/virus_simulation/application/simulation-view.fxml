@@ -16,9 +16,10 @@
          <children>
             <Button fx:id="startButton" layoutX="350.0" layoutY="25.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefWidth="100.0" text="Start" />
             <Button fx:id="stopButton" layoutX="475.0" layoutY="25.0" mnemonicParsing="false" onAction="#onStopButtonClick" prefWidth="100.0" text="Stop" />
-            <Button fx:id="spawnButton" layoutX="50.0" layoutY="25.0" mnemonicParsing="false" onAction="#onSpawnButtonClick" prefWidth="100.0" text="Spawn" />
+            <Button fx:id="spawnButton" layoutX="50.0" layoutY="38.0" mnemonicParsing="false" onAction="#onSpawnButtonClick" prefWidth="100.0" text="Spawn" />
             <ComboBox fx:id="savedTimesComboBox" layoutX="200.0" layoutY="10.0" onAction="#onItemSelected" prefWidth="100.0" />
             <Button fx:id="restoreButton" layoutX="200.0" layoutY="40.0" mnemonicParsing="false" onAction="#onRestoreButtonClick" prefWidth="100.0" text="Restore" />
+            <ComboBox fx:id="casesComboBox" layoutX="50.0" layoutY="10.0" onAction="#onCaseSelected" prefWidth="100.0" />
          </children>
       </Pane>
    </bottom>

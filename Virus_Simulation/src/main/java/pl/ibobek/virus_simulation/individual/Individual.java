@@ -4,10 +4,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import pl.ibobek.virus_simulation.application.SimulationApplication;
-import pl.ibobek.virus_simulation.individual.State.HealthyUnresistantState;
-import pl.ibobek.virus_simulation.individual.State.SickNoSymptoms;
-import pl.ibobek.virus_simulation.individual.State.SickWithSymptoms;
-import pl.ibobek.virus_simulation.individual.State.State;
+import pl.ibobek.virus_simulation.individual.State.*;
 import pl.ibobek.virus_simulation.individual.Vector2D.Vector2D;
 
 import java.util.HashMap;
@@ -30,7 +27,7 @@ public class Individual {
         this.infectionTimes = infectionTimes;
     }
 
-    public Individual(Pane area) {
+    public Individual(Pane area, boolean initialCase) {
 
         Random random = new Random();
         int randomNumber = random.nextInt(10) + 1;
@@ -39,6 +36,8 @@ public class Individual {
                 this.state = new SickWithSymptoms(this);
             else
                 this.state = new SickNoSymptoms(this);
+        } else if (randomNumber == 2 && initialCase) {
+            this.state = new ResistantState(this);
         } else
             this.state = new HealthyUnresistantState(this);
 

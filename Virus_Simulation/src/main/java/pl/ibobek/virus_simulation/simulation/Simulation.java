@@ -10,9 +10,7 @@ import pl.ibobek.virus_simulation.individual.MoveController;
 import pl.ibobek.virus_simulation.individual.State.*;
 import pl.ibobek.virus_simulation.individual.Vector2D.Vector2D;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 public class Simulation {
 
@@ -20,11 +18,11 @@ public class Simulation {
     private Pane area;
     public static int TIME_OF_INFECTION = 3 * (int)SimulationController.fps;
 
-    public Simulation(Pane area, int populationSize) {
+    public Simulation(Pane area, int populationSize, boolean initialCase) {
 
         this.area = area;
         for (int i = 0; i < populationSize; ++i) {
-            population.add(new Individual(area));
+            population.add(new Individual(area, initialCase));
         }
         for (Individual individual : population) {
             HashMap<Individual, Integer> infectionTimes = new HashMap<>();
@@ -43,12 +41,18 @@ public class Simulation {
         Vector2D vector2D;
         State state;
         MoveController moveController;
+        ArrayList<ArrayList<Integer>> distancesList = new ArrayList<>();
+        Collection<Integer> distancesTemp;
 
         for (Individual i : population) {
             vector2D = i.getPosition();
             state = i.getState();
             moveController = i.getMoveController();
-            Individual individual = new Individual(new Vector2D(vector2D), new MoveController(moveController), i.getCircle(), i.getArea(), i.getInfectionTimes());
+
+            distancesTemp = i.getInfectionTimes().values();
+            distancesList.add(new ArrayList<>(distancesTemp));
+
+            Individual individual = new Individual(new Vector2D(vector2D), new MoveController(moveController), i.getCircle(), i.getArea(), new HashMap<>());
 
             if (state.getColor() == Color.BLUE) {
                 individual.setState(new HealthyUnresistantState(individual, state));
@@ -64,6 +68,19 @@ public class Simulation {
             }
 
             newPopulation.add(individual);
+        }
+
+        int i = 0;
+        int j = 0;
+
+        for (Individual individual : newPopulation) {
+            individual.getInfectionTimes().clear();
+            for (Individual ind : newPopulation) {
+                if (individual != ind)
+                    individual.getInfectionTimes().put(ind, distancesList.get(i).get(j++));
+            }
+            i++;
+            j = 0;
         }
 
         return new Memento(newPopulation);
@@ -92,7 +109,7 @@ public class Simulation {
     public void update(Pane area) {
         int random = new Random().nextInt(25) + 1;
         if (random == 5) {
-            Individual newIndividual = new Individual(area);
+            Individual newIndividual = new Individual(area, false);
             double x = Math.random() * (area.getWidth() - 2 * Individual.circleWidth);
             double y = Math.random() * (area.getHeight() - 2 * Individual.circleWidth);
             if (new Random().nextBoolean()) {

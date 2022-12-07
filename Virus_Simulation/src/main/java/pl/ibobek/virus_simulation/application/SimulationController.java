@@ -29,7 +29,10 @@ public class SimulationController {
     Button restoreButton;
     @FXML
     ComboBox<Integer> savedTimesComboBox;
+    @FXML
+    ComboBox<String> casesComboBox;
     ObservableList<Integer> savedTimes = FXCollections.observableArrayList();
+    ObservableList<String> initationCases = FXCollections.observableArrayList();
     Simulation simulation;
     Timer timer;
 
@@ -60,22 +63,33 @@ public class SimulationController {
     @FXML
     public void initialize() {
         savedTimesComboBox.setItems(savedTimes);
+        initationCases.add("Początkowe osobniki nie posiadają odporności");
+        initationCases.add("Losowe osobniki posiadają odporność");
+        casesComboBox.setItems(initationCases);
+
         timer = new Timer();
         startButton.setDisable(true);
         stopButton.setDisable(true);
         savedTimesComboBox.setDisable(true);
         restoreButton.setDisable(true);
+        spawnButton.setDisable(true);
+        casesComboBox.setDisable(false);
     }
 
     @FXML
     public void onSpawnButtonClick() {
         timer.stop();
         area.getChildren().clear();
+        if (casesComboBox.getValue().equals("Początkowe osobniki nie posiadają odporności"))
+            simulation = new Simulation(area, populationSize, false);
+        else
+            simulation = new Simulation(area, populationSize, true);
+
         elapsedFrames = 0;
         savedTimes.clear();
-        simulation = new Simulation(area, populationSize);
         startButton.setDisable(false);
         stopButton.setDisable(true);
+        casesComboBox.setDisable(false);
     }
 
     @FXML
@@ -85,6 +99,7 @@ public class SimulationController {
         startButton.setDisable(false);
         stopButton.setDisable(true);
         savedTimesComboBox.setDisable(false);
+        casesComboBox.setDisable(false);
     }
 
     @FXML
@@ -94,6 +109,7 @@ public class SimulationController {
         stopButton.setDisable(false);
         startButton.setDisable(true);
         savedTimesComboBox.setDisable(true);
+        casesComboBox.setDisable(true);
     }
 
     @FXML
@@ -115,6 +131,11 @@ public class SimulationController {
     @FXML
     public void onItemSelected() {
         restoreButton.setDisable(false);
+    }
+
+    @FXML
+    public void onCaseSelected() {
+        spawnButton.setDisable(false);
     }
 
 
