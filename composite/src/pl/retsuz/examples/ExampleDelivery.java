@@ -33,7 +33,24 @@ public abstract class ExampleDelivery {
 
         IComposite pomarancza=new TextFile();
         pomarancza.setName("pomarancza.txt");
-        ((TextFile)pomarancza).setContent("Masz, poczęstuj się.");
+        ((TextFile)pomarancza).setContent("Masz, poczęstuj się.\nA gdyby tak wszyscy ludzie\nmogli przeżyć taki jeden dzień\nBy wolność wszystkich, wszystkich zbudzi\nI powie: \"Idzźcie tańczyć,to nie sen\"");
+
+        IComposite test1 = new TextFile();
+        test1.setName("test1.txt");
+        ((TextFile)test1).setContent("Apple\n" +
+                "Orange\n" +
+                "Banana\n" +
+                "Watermelon\n" +
+                "Chery");
+
+        IComposite test2 = new TextFile();
+        test2.setName("test2.txt");
+        ((TextFile)test2).setContent("Orange\n" +
+                "Peach\n" +
+                "Apple\n" +
+                "Banana\n" +
+                "Melon\n" +
+                "Cherry");
 
         try {
             ((Composite) root).addElement(_null);
@@ -47,6 +64,9 @@ public abstract class ExampleDelivery {
 
             ((Composite) sdocs).addElement(secretdoc);
             ((Composite) docs).addElement(pomarancza);
+
+            ((Composite) root).addElement(test1);
+            ((Composite) root).addElement(test2);
 
         } catch(Exception e) {
             e.printStackTrace();

@@ -2,14 +2,15 @@ package pl.retsuz.shell;
 
 import pl.retsuz.context.IContext;
 import pl.retsuz.shell.gen.ICommand;
-import pl.retsuz.shell.specs.Cd;
-import pl.retsuz.shell.specs.Ls;
-import pl.retsuz.shell.specs.More;
-import pl.retsuz.shell.specs.Tree;
+import pl.retsuz.shell.specs.*;
 import pl.retsuz.shell.variations.cd.CD_Path;
 import pl.retsuz.shell.variations.cd.CD_ddot;
 import pl.retsuz.shell.variations.cd.CD_def;
+import pl.retsuz.shell.variations.diff.Diff_Def;
+import pl.retsuz.shell.variations.diff.Diff_Path;
 import pl.retsuz.shell.variations.gen.ICommandVariation;
+import pl.retsuz.shell.variations.grep.Grep_Def;
+import pl.retsuz.shell.variations.grep.Grep_Path;
 import pl.retsuz.shell.variations.ls.LS_Def;
 import pl.retsuz.shell.variations.ls.LS_Path;
 import pl.retsuz.shell.variations.ls.LS_ddot;
@@ -45,7 +46,16 @@ public abstract class DefShell {
         ls.set_default(ls_def);
 
         //TODO Dodać grep i diff
+        ICommand grep = new Grep(ctx, ls);
+        ICommandVariation grep_path = new Grep_Path(null, grep);
+        ICommandVariation grep_def = new Grep_Def(grep_path, grep);
+        grep.set_default(grep_def);
 
-        return ls;
+        ICommand diff = new Diff(ctx, grep);
+        ICommandVariation diff_path = new Diff_Path(null, diff);
+        ICommandVariation diff_def = new Diff_Def(diff_path, diff);
+        diff.set_default(diff_def);
+
+        return diff;
     }
 }

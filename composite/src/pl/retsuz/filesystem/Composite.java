@@ -92,18 +92,20 @@ public class Composite extends GeneralComposite{
 
     public String tree(String offset){
         String toff= "";
-        if(offset!=null)toff=offset;
+        if (offset!=null)
+            toff = offset;
 
-        String results="";
-        results+=toff+this.getName()+"/\n";
-        int i=0;int n=this.children.size();
+        String results = "";
+        results += toff + this.getName() + "/\n";
+        int i = 0;
+        int n = this.children.size();
 
-        for(i=0;i<n;i++){
+        for(i = 0;i < n; i++){
             IComposite child = this.children.get(i);
             if(!Composite.class.isInstance(child))
-                results+=toff+toff+" "+child.getName()+"\n";
+                results += toff + toff + " " + child.getName() + "\n";
             else
-                results+=toff+((Composite)child).tree(toff+" ");
+                results += toff + ((Composite)child).tree(toff + " ");
         }
 
         return results;

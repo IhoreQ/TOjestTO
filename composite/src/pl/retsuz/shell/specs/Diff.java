@@ -6,6 +6,6 @@ import pl.retsuz.shell.gen.ICommand;
 
 public class Diff extends Command {
     public Diff(IContext ctx, ICommand next) {
-        super("diff", ctx, next, null, )
+        super("diff", ctx, next, null, "Użycie diff <sciezka> <sciezka>");
     }
 }

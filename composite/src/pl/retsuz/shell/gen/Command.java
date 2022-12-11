@@ -27,7 +27,7 @@ public abstract class Command implements ICommand {
         this.context=ctx;
         this.prefix=prefix;
         this.next = next;
-        this.generalPattern = Pattern.compile(prefix+" *([a-zA-Z0-9.l\\/_]*)");
+        this.generalPattern = Pattern.compile(prefix + " *([\" a-zA-Z0-9.l\\/_]*)");
         this._default=def;
         this.man=info;
     }
