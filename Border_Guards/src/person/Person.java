@@ -5,10 +5,10 @@ import person.flyweight.PersonName;
 public class Person {
     private final PersonName name;
     private final String surname;
-    private final double latitude;
-    private final double longitude;
+    private final String latitude;
+    private final String longitude;
 
-    public Person(PersonName name, String surname, double latitude, double longitude) {
+    public Person(PersonName name, String surname, String latitude, String longitude) {
         this.name = name;
         this.surname = surname;
         this.latitude = latitude;
@@ -23,11 +23,11 @@ public class Person {
         return surname;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 }

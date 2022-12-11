@@ -17,7 +17,7 @@ public class Application {
     }
 
     private void printMenu() {
-        System.out.println("1 - Dodaj osobe\n2 - Pokaz liste osob\n3 - Zapisz osoby do pliku\n4 - Wczytaj osoby z pliku\b5 - Wyjdz");
+        System.out.println("1 - Dodaj osobe\n2 - Pokaz liste osob\n3 - Zapisz osoby do pliku\n4 - Wczytaj osoby z pliku\n5 - Wyjdz");
     }
     private int parseInt(String message) {
         System.out.println(message);
@@ -27,18 +27,6 @@ public class Application {
         } catch (Exception e) {
             System.out.println("Wprowadzono bledne dane!");
             return parseInt(message);
-        }
-        return input;
-    }
-
-    private double parseDouble(String message) {
-        System.out.println(message);
-        double input;
-        try {
-            input = Double.parseDouble(scanner.nextLine());
-        } catch (Exception e) {
-            System.out.println("Wprowadzono bledne dane!");
-            return parseDouble(message);
         }
         return input;
     }
@@ -59,6 +47,40 @@ public class Application {
         return input;
     }
 
+    private String parseLatitude(String message) {
+
+        System.out.println(message);
+        String input;
+        String regexPattern = "^(\\+|-)?(?:90(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\\.[0-9]{1,6})?))$";
+
+        try {
+            input = scanner.nextLine();
+            if (!checkPattern(input, regexPattern))
+                throw new Exception();
+        } catch (Exception e) {
+            System.out.println("Wprowadzono błędne dane!");
+            return parseLatitude(message);
+        }
+        return input;
+    }
+
+    private String parseLongitude(String message) {
+
+        System.out.println(message);
+        String input;
+        String regexPattern = "^(\\+|-)?(?:180(?:(?:\\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\\.[0-9]{1,6})?))$";
+
+        try {
+            input = scanner.nextLine();
+            if (!checkPattern(input, regexPattern))
+                throw new Exception();
+        } catch (Exception e) {
+            System.out.println("Wprowadzono błędne dane!");
+            return parseLongitude(message);
+        }
+        return input;
+    }
+
     public boolean checkPattern(String line, String regexPattern) {
         return Pattern.compile(regexPattern).matcher(line).matches();
     }
@@ -71,10 +93,9 @@ public class Application {
 
     public void run() {
         int choice = 0;
-        String name, surname;
-        double latitude, longitude;
+        String name, surname, latitude, longitude;
 
-        while (choice != 4) {
+        while (choice != 5) {
             printMenu();
             choice = parseInt("Wybierz opcje: ");
 
@@ -82,17 +103,24 @@ public class Application {
                 case 1:
                     name = parseName("Podaj imię: ");
                     surname = parseName("Podaj nazwisko: ");
-                    latitude = parseDouble("Podaj szerokosc geograficzna: ");
-                    longitude = parseDouble("Podaj dlugosc geograficzna: ");
+                    latitude = parseLatitude("Podaj szerokosc geograficzna: ");
+                    longitude = parseLongitude("Podaj dlugosc geograficzna: ");
                     guard.addPerson(name, surname, latitude, longitude);
                     break;
                 case 2:
+                    System.out.println("--------------------");
                     for (Person p : peopleDatabase.getPeopleList()) {
                         showPersonInfo(p);
+                        System.out.println("--------------------");
                     }
                     break;
                 case 3:
-                    System.out.println("Gotowe");
+                    peopleDatabase.saveToFile();
+                    break;
+                case 4:
+                    peopleDatabase.loadFromFile();
+                    break;
+                case 5:
                     break;
                 default:
                     System.out.println("Nie ma takiej opcji.");
