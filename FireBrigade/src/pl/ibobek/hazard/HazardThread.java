@@ -21,6 +21,6 @@ public class HazardThread implements Runnable {
         // Stacja pobiera informacje o dostępnych jednostkach
         mainStation.getAvailableStations();
         // Stacja wysyła jednostkę która znajduje się najbliżej
-        mainStation.sendTeam();
+        mainStation.sendTeams();
     }
 }
