@@ -51,6 +51,5 @@ public class Grep_Path extends CommandVariation {
         } catch (Exception e) {
             System.out.println("Docelowy element nie jest plikiem lub nie istnieje.");
         }
-
     }
 }

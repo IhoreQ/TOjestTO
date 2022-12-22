@@ -8,11 +8,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
-public class PeopleDatabase {
+public class PeopleDatabase implements Subject {
 
     private final PersonFactory peopleNameCache = new PersonFactory();
     private ArrayList<Person> peopleList = new ArrayList<>();
 
+    @Override
     public void addPerson(String name, String surname, String latitude, String longitude) {
 
         PersonName personName = peopleNameCache.getPersonName(name);

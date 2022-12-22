@@ -45,7 +45,6 @@ public abstract class DefShell {
         ICommandVariation ls_def= new LS_Def(ls_ddot, ls);
         ls.set_default(ls_def);
 
-        //TODO Dodać grep i diff
         ICommand grep = new Grep(ctx, ls);
         ICommandVariation grep_path = new Grep_Path(null, grep);
         ICommandVariation grep_def = new Grep_Def(grep_path, grep);

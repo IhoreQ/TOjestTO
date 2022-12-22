@@ -11,11 +11,7 @@ public class CD_def extends CommandVariation {
     }
     @Override
     public void make(String params) {
-
         System.out.println("Zbyt mała liczba parametrów!");
-
-
-
     }
 }
 

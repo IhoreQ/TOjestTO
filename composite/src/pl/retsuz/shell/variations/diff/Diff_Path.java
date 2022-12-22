@@ -35,10 +35,6 @@ public class Diff_Path extends CommandVariation {
 
             int[][] lcs = longestCommonSubsequence(firstFileLines, secondFileLines);
 
-
-            // TODO spakować w osobną funkcję
-            // TODO dodać numery linii
-
             while (i != 0 || j != 0) {
                 if (i == 0) {
                     elements.add(secondFileLines[j - 1]);
