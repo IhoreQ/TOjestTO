@@ -10,7 +10,7 @@ public class Database {
 
     private String URL = "jdbc:postgresql://localhost:5432/chowmaker";
     private String USER = "postgres";
-    private String PASSWORD = "humbucker123";
+    private String PASSWORD = "123456ab";
 
     private Connection connection = null;
 
@@ -21,7 +21,6 @@ public class Database {
     public void connect() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Połączono");
         } catch (SQLException e) {
             e.printStackTrace();
         }

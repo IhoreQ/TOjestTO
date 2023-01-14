@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.ibobek.chowmaker.MainMenuController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="findRecipesButton" layoutX="350.0" layoutY="270.0" mnemonicParsing="false" onAction="#changeToFindRecipesScene" prefWidth="300.0" style="-fx-background-color: #93C759; -fx-background-radius: 5px;" text="Find recipes" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="addRecipeButton" layoutX="350.0" layoutY="375.0" mnemonicParsing="false" onAction="#changeToAddRecipeScene" prefWidth="300.0" style="-fx-background-color: #93C759; -fx-background-radius: 5px;" text="Add recipe" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="exitButton" layoutX="350.0" layoutY="480.0" mnemonicParsing="false" onAction="#exitApplication" prefWidth="300.0" style="-fx-background-color: #D8456B; -fx-background-radius: 5px;" text="Exit" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="306.0" layoutY="91.0" text="Chow Maker" textFill="#93c759">
+         <font>
+            <Font size="70.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

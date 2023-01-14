@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.ibobek.chowmaker.RecipesController">
+   <Pane prefHeight="600.0" prefWidth="350.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 2, 0); -fx-background-color: white;">
+      <Pane prefHeight="50.0" prefWidth="350.0" style="-fx-background-color: #D8456B; -fx-background-radius: 0 0 10px 10px;">
+         <Label layoutX="100.0" layoutY="3.0" text="Ingredients" textFill="WHITE">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Label>
+      </Pane>
+      <ComboBox fx:id="basicIngredientsComboBox" layoutX="28.0" layoutY="100.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: rgba(181,191,200,.2);">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="vegetablesComboBox" layoutX="28.0" layoutY="170.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: rgba(181,191,200,.2);">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="dairyComboBox" layoutX="28.0" layoutY="380.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: rgba(181,191,200,.2);">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="fruitComboBox" layoutX="28.0" layoutY="240.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: rgba(181,191,200,.2);">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <ComboBox fx:id="meatComboBox" layoutX="28.0" layoutY="310.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: rgba(181,191,200,.2);">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <Label layoutX="106.0" layoutY="70.0" text="Basic" textFill="#424242">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="79.0" layoutY="140.0" text="Vegetables" textFill="#424242">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="210.0" text="Fruit" textFill="#424242">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="105.0" layoutY="280.0" text="Meat" textFill="#424242">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="105.0" layoutY="350.0" text="Dairy">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="basicIngredientsAddButton" layoutX="258.0" layoutY="100.0" mnemonicParsing="false" onAction="#onBasicIngredientsAddButtonClick" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #93C759; -fx-background-radius: 5px;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="vegetablesAddButton" layoutX="258.0" layoutY="170.0" mnemonicParsing="false" onAction="#onVegetablesAddButtonClick" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #93C759; -fx-background-radius: 5px;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="fruitAddButton" layoutX="258.0" layoutY="240.0" mnemonicParsing="false" onAction="#onFruitAddButtonClick" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #93C759; -fx-background-radius: 5px;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="meatAddButton" layoutX="258.0" layoutY="310.0" mnemonicParsing="false" onAction="#onMeatAddButtonClick" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #93C759; -fx-background-radius: 5px;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="dairyAddButton" layoutX="258.0" layoutY="380.0" mnemonicParsing="false" onAction="#onDairyAddButtonClick" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #93C759; -fx-background-radius: 5px;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="100.0" layoutY="425.0" text="Spices" textFill="#424242">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="spicesComboBox" layoutX="28.0" layoutY="455.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: rgba(181,191,200,.2);">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <Button fx:id="spicesAddButton" layoutX="258.0" layoutY="455.0" mnemonicParsing="false" onAction="#onSpicesAddButtonClick" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #93C759; -fx-background-radius: 5px;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="97.0" layoutY="500.0" text="Sauces" textFill="#424242">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="saucesComboBox" layoutX="27.0" layoutY="530.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: rgba(181,191,200,.2);">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <Button fx:id="saucesAddButton" layoutX="258.0" layoutY="530.0" mnemonicParsing="false" onAction="#onSaucesAddButtonClick" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #93C759; -fx-background-radius: 5px;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </Pane>
+   <Pane layoutX="370.0" prefHeight="180.0" prefWidth="630.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, -2, 2);">
+      <Pane prefHeight="50.0" prefWidth="630.0" style="-fx-background-color: #D8456B; -fx-background-radius: 0 0 10px 10px;">
+         <Label layoutX="187.0" layoutY="3.0" text="Chosen Ingredients" textFill="WHITE">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Label>
+         <Button fx:id="menuReturnButton" layoutX="580.0" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="49.0" prefWidth="50.0" style="-fx-background-color: #D8456B; -fx-background-radius: 0 0 10px 0;" text="X" textFill="WHITE">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Button>
+      </Pane>
+      <ComboBox fx:id="chosenIngredientsComboBox" layoutX="215.0" layoutY="82.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: rgba(181,191,200,.2); -fx-background-radius: 5px;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ComboBox>
+      <Button fx:id="deleteIngredientButton" layoutX="265.0" layoutY="127.0" mnemonicParsing="false" onAction="#onDeleteIngredientButtonClick" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #93C759; -fx-background-radius: 5px;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </Pane>
+   <Pane layoutX="370.0" layoutY="200.0" prefHeight="400.0" prefWidth="630.0" style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, -2, -2);">
+      <Pane prefHeight="50.0" prefWidth="630.0" style="-fx-background-color: #D8456B; -fx-background-radius: 0 0 10px 10px;">
+         <Label layoutX="237.0" layoutY="3.0" text="New Recipe" textFill="WHITE">
+            <font>
+               <Font size="30.0" />
+            </font>
+         </Label>
+      </Pane>
+      <TextArea fx:id="newRecipeDescriptionTextArea" layoutX="15.0" layoutY="121.0" prefHeight="200.0" prefWidth="600.0" promptText="Description" style="-fx-background-color: rgba(181,191,200,.2); -fx-background-radius: 10px; -fx-border-radius: 10px;" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextArea>
+      <TextField fx:id="newRecipeNameTextField" layoutX="215.0" layoutY="67.0" prefHeight="30.0" prefWidth="200.0" promptText="Recipe name" style="-fx-background-color: rgba(181,191,200,.2);">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Button fx:id="addRecipeButton" layoutX="265.0" layoutY="346.0" mnemonicParsing="false" onAction="#addRecipe" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #93C759;" text="Add" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </Pane>
+</Pane>

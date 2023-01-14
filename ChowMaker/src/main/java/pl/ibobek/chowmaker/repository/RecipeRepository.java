@@ -2,17 +2,20 @@ package pl.ibobek.chowmaker.repository;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.util.Pair;
 import pl.ibobek.chowmaker.models.Ingredient;
 import pl.ibobek.chowmaker.models.Recipe;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
-public class RecipeRepository extends Repository {
+public class RecipeRepository extends Repository implements RecipeService {
 
     public ObservableList<Recipe> getRecipesByIngredients(ArrayList<Integer> ingredientsIDs) {
 
@@ -48,5 +51,50 @@ public class RecipeRepository extends Repository {
         }
 
         return recipes;
+    }
+
+    @Override
+    public Pair<Boolean, String> addRecipe(ArrayList<Integer> ingredientsID, String name, String description) {
+
+        Connection connection = database.getConnection();
+
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM recipes WHERE recipe_name = ?");
+            statement.setString(1, name);
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next())
+                return new Pair<>(false, "The recipe with this name already exists!");
+
+            statement = connection.prepareStatement("INSERT INTO recipes (recipe_name, description) VALUES (?,?)");
+            statement.setString(1, name);
+            statement.setString(2, description);
+            statement.executeUpdate();
+
+            statement = connection.prepareStatement("SELECT * FROM recipes WHERE recipe_name = ?");
+            statement.setString(1, name);
+            resultSet = statement.executeQuery();
+
+            int recipeID = -1;
+
+            if (resultSet.next()) {
+                recipeID = resultSet.getInt("id_recipe");
+            }
+
+            if (recipeID == -1)
+                return new Pair<>(false, "Error during adding process!");
+
+            for (Integer ingredientID : ingredientsID) {
+                statement = connection.prepareStatement("INSERT INTO recipes_ingredients (id_recipe, id_ingredient) VALUES (?,?)");
+                statement.setInt(1, recipeID);
+                statement.setInt(2, ingredientID);
+                statement.executeUpdate();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return new Pair<>(true, "Recipe added.");
     }
 }
